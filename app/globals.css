@@ -4,6 +4,7 @@
 :root { --ink:#22252a; --muted:#85898f; --line:#e8e7e3; --paper:#f6f6f3; --white:#fff; --green:#c9ecdd; --green-dark:#1d7e62; }
 * { box-sizing:border-box; }
 body { margin:0; background:var(--paper); color:var(--ink); font-family:'Manrope',sans-serif; font-size:13px; }
+.auth-loading { min-height:100vh; display:grid; place-items:center; background:var(--paper); color:#6f7771; font:11px 'DM Mono'; }
 button { border:0; font:inherit; cursor:pointer; color:inherit; }
 .shell { display:flex; min-height:100vh; }
 .sidebar { width:232px; background:#252a2d; color:#c7ccca; padding:28px 14px 18px; display:flex; flex-direction:column; flex-shrink:0; }
