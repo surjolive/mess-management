@@ -25,12 +25,12 @@ export default function Home() {
   useEffect(() => {
     try {
       const session = window.localStorage.getItem("messmate_session");
-      if (session) setAuthenticated(true);
+      if (session) window.setTimeout(() => setAuthenticated(true), 0);
       else window.location.replace(`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/login/`);
     } catch {
       window.location.replace(`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/login/`);
     } finally {
-      setCheckingSession(false);
+      window.setTimeout(() => setCheckingSession(false), 0);
     }
   }, []);
 
