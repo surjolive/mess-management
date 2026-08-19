@@ -58,7 +58,7 @@ export default function AuthForm({ mode }: { mode: "login" | "signup" }) {
       const verifiedUser = { ...pendingUser, verified: true };
       localStorage.setItem(storageKey, JSON.stringify([...users, verifiedUser]));
       localStorage.setItem("messmate_session", JSON.stringify({ name: verifiedUser.name, email: verifiedUser.email, role: verifiedUser.role }));
-      window.location.href = `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/`;
+      window.location.href = `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/dashboard/`;
       return;
     }
     const passwordHash = await hashPassword(password);
@@ -66,7 +66,7 @@ export default function AuthForm({ mode }: { mode: "login" | "signup" }) {
     if (!user) { setMessage("Email or password is incorrect."); setBusy(false); return; }
     if (!user.verified) { sendCode(user); setBusy(false); return; }
     localStorage.setItem("messmate_session", JSON.stringify({ name: user.name, email: user.email, role: user.role }));
-    window.location.href = `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/`;
+    window.location.href = `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/dashboard/`;
   }
 
   const verificationStep = isSignup && step === "verify";
